@@ -140,6 +140,7 @@
 
 - (IBAction) batch: (id)sender
 {
+    if (self.receipts.count == 0) return;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo: self.navigationController.view animated: YES];
     hud.dimBackground = YES;
     [self findNextReceiptToDownload];
