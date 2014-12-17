@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
+- (IBAction)batch:(id)sender;
 
 @end
 

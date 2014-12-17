@@ -11,9 +11,11 @@
 #import "TRQRScannerController.h"
 #import "TRReceipt.h"
 #import <NSCollectionAddition/NSCollectionAddition.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import <AFNetworking/AFNetworking.h>
 
 @interface MasterViewController ()
-
+@property UIDocumentInteractionController *docController;
 @property NSMutableArray *receipts;
 @end
 
@@ -30,7 +32,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
@@ -68,6 +69,82 @@
         return [TRReceipt receiptWithString: s];
     }] mutableCopy];
 }
+
+#pragma mark - Download
+
+- (void) downloadReceipt: (TRReceipt *)receipt
+{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURL *URL = receipt.urlForDownload;
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        return [documentsDirectoryURL URLByAppendingPathComponent: [NSString stringWithFormat: @"%@%@.pdf", receipt.ticketNo, receipt.seatNo]];
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        if (error) {
+            receipt.downloadStatus = Failed;
+        } else {
+            receipt.localURL = filePath;
+            receipt.downloadStatus = Downloaded;
+            NSLog(@"File downloaded to: %@", filePath);
+        }
+        [self findNextReceiptToDownload];
+    }];
+    receipt.downloadStatus = Downloading;
+    [downloadTask resume];
+}
+
+- (void) findNextReceiptToDownload
+{
+    if ([self.receipts forAll: ^(TRReceipt *r) { return (BOOL)(r.downloadStatus == Downloaded); }]) {
+        // combine the pdf and mail
+        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        NSURL *mergedURL = [documentsDirectoryURL URLByAppendingPathComponent: @"merged.pdf"];
+        [[NSFileManager defaultManager] removeItemAtURL: mergedURL error: nil];
+        
+        
+        CGRect mediaBox = CGRectMake(0, 0, 595, 842);
+        CGContextRef context = CGPDFContextCreateWithURL((__bridge CFURLRef)mergedURL, &mediaBox, NULL);
+        for (TRReceipt *r in self.receipts) {
+            CGPDFContextBeginPage(context, NULL);
+            
+            CGPDFDocumentRef receiptPDF = CGPDFDocumentCreateWithURL((__bridge CFURLRef)r.localURL);
+            CGPDFPageRef page = CGPDFDocumentGetPage(receiptPDF, 1); // hardcoded. only 1 page!
+            
+            CGContextDrawPDFPage(context, page);
+            
+            CGPDFDocumentRelease(receiptPDF);
+            
+            CGPDFContextEndPage(context);
+        }
+        CGPDFContextClose(context);
+        
+        // all pdf merged!
+        MBProgressHUD *hud = [MBProgressHUD HUDForView: self.navigationController.view];
+        [hud hide: YES];
+        
+        self.docController = [UIDocumentInteractionController interactionControllerWithURL: mergedURL];
+        [self.docController presentOptionsMenuFromRect: CGRectZero inView: self.tableView animated: YES];
+        
+    } else {
+        TRReceipt *next = [[self.receipts filter: ^(TRReceipt *r) {
+            return (BOOL)(r.downloadStatus != Downloaded && r.downloadStatus != Downloading);
+        }] head];
+        [self downloadReceipt: next];
+    }
+}
+
+- (IBAction) batch: (id)sender
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo: self.navigationController.view animated: YES];
+    hud.dimBackground = YES;
+    [self findNextReceiptToDownload];
+}
+
 
 #pragma mark - Table View
 

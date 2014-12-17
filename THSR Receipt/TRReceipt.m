@@ -19,4 +19,8 @@
     return r;
 }
 
+- (NSURL *) urlForDownload
+{
+    return [NSURL URLWithString: [NSString stringWithFormat: @"http://www4.thsrc.com.tw/tc/TExp/page_print.asp?lang=tc&pnr=%@&tid=%@", self.seatNo, self.ticketNo]];
+}
 @end
