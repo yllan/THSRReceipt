@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "DetailViewController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -22,6 +25,7 @@
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
+    [Fabric with:@[CrashlyticsKit]];
     return YES;
 }
 
