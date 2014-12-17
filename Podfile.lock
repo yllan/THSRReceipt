@@ -1,0 +1,48 @@
+PODS:
+  - AFNetworking (2.4.1):
+    - AFNetworking/NSURLConnection (= 2.4.1)
+    - AFNetworking/NSURLSession (= 2.4.1)
+    - AFNetworking/Reachability (= 2.4.1)
+    - AFNetworking/Security (= 2.4.1)
+    - AFNetworking/Serialization (= 2.4.1)
+    - AFNetworking/UIKit (= 2.4.1)
+  - AFNetworking/NSURLConnection (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.4.1)
+  - AFNetworking/Security (2.4.1)
+  - AFNetworking/Serialization (2.4.1)
+  - AFNetworking/UIKit (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - MBProgressHUD (0.9)
+  - NSCollectionAddition (1.0)
+  - UIAlertView+Blocks (0.8.1)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.4.1)
+  - MBProgressHUD (~> 0.8)
+  - NSCollectionAddition (from `https://github.com/yllan/NSCollectionAddition.git`)
+  - UIAlertView+Blocks (~> 0.8.1)
+
+EXTERNAL SOURCES:
+  NSCollectionAddition:
+    :git: https://github.com/yllan/NSCollectionAddition.git
+
+CHECKOUT OPTIONS:
+  NSCollectionAddition:
+    :commit: a9de4bc43bdebc9c43d91b4c1941d3d84ff3626e
+    :git: https://github.com/yllan/NSCollectionAddition.git
+
+SPEC CHECKSUMS:
+  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
+  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  NSCollectionAddition: 194f90bbf0f5ed32a372fcaf54580dd53e93c9fe
+  UIAlertView+Blocks: 0b749f1f7bd5131ff2233b30a406c1585a7171b2
+
+COCOAPODS: 0.35.0

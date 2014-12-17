@@ -15,6 +15,10 @@
 		8556E8EB1A41C42A0079A01A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8556E8EA1A41C42A0079A01A /* Images.xcassets */; };
 		8556E8EE1A41C42A0079A01A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8556E8EC1A41C42A0079A01A /* LaunchScreen.xib */; };
 		8556E8FA1A41C42A0079A01A /* THSR_ReceiptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8556E8F91A41C42A0079A01A /* THSR_ReceiptTests.m */; };
+		8556E9051A41C46D0079A01A /* TRReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 8556E9041A41C46D0079A01A /* TRReceipt.m */; };
+		8556E9081A41C4E20079A01A /* TRQRScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8556E9071A41C4E20079A01A /* TRQRScannerController.m */; };
+		8556E90A1A41C5050079A01A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8556E9091A41C5050079A01A /* AVFoundation.framework */; };
+		DE23691D253FEFBDF4566C29 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FFAC969D2413B00FC2A3A0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3613464137EBF5815C0AE0EA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8556E8D71A41C42A0079A01A /* THSR Receipt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THSR Receipt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8556E8DB1A41C42A0079A01A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8556E8DC1A41C42A0079A01A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +48,13 @@
 		8556E8F31A41C42A0079A01A /* THSR ReceiptTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "THSR ReceiptTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8556E8F81A41C42A0079A01A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8556E8F91A41C42A0079A01A /* THSR_ReceiptTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THSR_ReceiptTests.m; sourceTree = "<group>"; };
+		8556E9031A41C46D0079A01A /* TRReceipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRReceipt.h; sourceTree = "<group>"; };
+		8556E9041A41C46D0079A01A /* TRReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRReceipt.m; sourceTree = "<group>"; };
+		8556E9061A41C4E20079A01A /* TRQRScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRQRScannerController.h; sourceTree = "<group>"; };
+		8556E9071A41C4E20079A01A /* TRQRScannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRQRScannerController.m; sourceTree = "<group>"; };
+		8556E9091A41C5050079A01A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BB3FC75EEBBB12D9BA1FAB9F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D8FFAC969D2413B00FC2A3A0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8556E90A1A41C5050079A01A /* AVFoundation.framework in Frameworks */,
+				DE23691D253FEFBDF4566C29 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +83,8 @@
 				8556E8D91A41C42A0079A01A /* THSR Receipt */,
 				8556E8F61A41C42A0079A01A /* THSR ReceiptTests */,
 				8556E8D81A41C42A0079A01A /* Products */,
+				93D96DB7418C9702C84B7862 /* Pods */,
+				FEA1458CC0F81DB677C246D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +100,10 @@
 		8556E8D91A41C42A0079A01A /* THSR Receipt */ = {
 			isa = PBXGroup;
 			children = (
+				8556E9061A41C4E20079A01A /* TRQRScannerController.h */,
+				8556E9071A41C4E20079A01A /* TRQRScannerController.m */,
+				8556E9031A41C46D0079A01A /* TRReceipt.h */,
+				8556E9041A41C46D0079A01A /* TRReceipt.m */,
 				8556E8DE1A41C42A0079A01A /* AppDelegate.h */,
 				8556E8DF1A41C42A0079A01A /* AppDelegate.m */,
 				8556E8E11A41C42A0079A01A /* MasterViewController.h */,
@@ -124,6 +144,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		93D96DB7418C9702C84B7862 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3613464137EBF5815C0AE0EA /* Pods.debug.xcconfig */,
+				BB3FC75EEBBB12D9BA1FAB9F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FEA1458CC0F81DB677C246D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8556E9091A41C5050079A01A /* AVFoundation.framework */,
+				D8FFAC969D2413B00FC2A3A0 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +169,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8556E8FD1A41C42A0079A01A /* Build configuration list for PBXNativeTarget "THSR Receipt" */;
 			buildPhases = (
+				84350DBDDB37DA65C97960B0 /* Check Pods Manifest.lock */,
 				8556E8D31A41C42A0079A01A /* Sources */,
 				8556E8D41A41C42A0079A01A /* Frameworks */,
 				8556E8D51A41C42A0079A01A /* Resources */,
+				DB672458E600F2D2B5BD0633 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,13 +259,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		84350DBDDB37DA65C97960B0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DB672458E600F2D2B5BD0633 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8556E8D31A41C42A0079A01A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8556E9051A41C46D0079A01A /* TRReceipt.m in Sources */,
 				8556E8E01A41C42A0079A01A /* AppDelegate.m in Sources */,
 				8556E8E31A41C42A0079A01A /* MasterViewController.m in Sources */,
+				8556E9081A41C4E20079A01A /* TRQRScannerController.m in Sources */,
 				8556E8DD1A41C42A0079A01A /* main.m in Sources */,
 				8556E8E61A41C42A0079A01A /* DetailViewController.m in Sources */,
 			);
@@ -349,6 +424,7 @@
 		};
 		8556E8FE1A41C42A0079A01A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3613464137EBF5815C0AE0EA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "THSR Receipt/Info.plist";
@@ -359,6 +435,7 @@
 		};
 		8556E8FF1A41C42A0079A01A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB3FC75EEBBB12D9BA1FAB9F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "THSR Receipt/Info.plist";
@@ -420,6 +497,7 @@
 				8556E8FF1A41C42A0079A01A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8556E9001A41C42A0079A01A /* Build configuration list for PBXNativeTarget "THSR ReceiptTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +506,7 @@
 				8556E9021A41C42A0079A01A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

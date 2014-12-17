@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TRQRScannerController.h"
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : UITableViewController <TRQRScannerControllerDelegate>
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
